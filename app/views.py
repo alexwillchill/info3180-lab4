@@ -25,7 +25,8 @@ def home():
 @app.route('/filelistings')
 def filelistings():
     filelister=[]
-
+    if not session.get('logged_in'):
+        abort(401)
         
     rootdir= os.getcwd()
     print rootdir
